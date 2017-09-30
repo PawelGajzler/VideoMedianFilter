@@ -55,6 +55,37 @@ namespace VMF.UI.ViewModel
             }
         }
 
+        public FileIOViewModel FileIO
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<FileIOViewModel>();
+            }
+        }
+
+        public FilterOptionsViewModel Filter
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<FilterOptionsViewModel>();
+            }
+        }
+
+        public ProgressViewModel Progress
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProgressViewModel>();
+            }
+        }
+
+        public TraceLogViewModel TraceLog
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TraceLogViewModel>();
+            }
+        }
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>
