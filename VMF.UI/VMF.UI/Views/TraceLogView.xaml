@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=TreaceLog}">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        </ListView>
     </Grid>
 </UserControl>

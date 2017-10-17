@@ -63,11 +63,11 @@ namespace VMF.UI.ViewModel
             }
         }
 
-        public FilterOptionsViewModel Filter
+        public FilterPickerViewModel Filter
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<FilterOptionsViewModel>();
+                return ServiceLocator.Current.GetInstance<FilterPickerViewModel>();
             }
         }
 

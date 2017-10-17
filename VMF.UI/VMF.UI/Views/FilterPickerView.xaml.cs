@@ -18,9 +18,9 @@ namespace VMF.UI.Views
     /// <summary>
     /// Logika interakcji dla klasy FilterOptionsView.xaml
     /// </summary>
-    public partial class FilterOptionsView : UserControl
+    public partial class FilterPickerView : UserControl
     {
-        public FilterOptionsView()
+        public FilterPickerView()
         {
             InitializeComponent();
         }

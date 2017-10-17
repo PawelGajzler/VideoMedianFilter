@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VMF.UI.ViewModel
 {
-    public class FilterOptionsViewModel : ViewModelBase
+    public class FilterPickerViewModel : ViewModelBase
     {
     }
 }
