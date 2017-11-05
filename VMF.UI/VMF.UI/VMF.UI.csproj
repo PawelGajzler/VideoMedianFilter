@@ -76,12 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Messages\ProgressMessage.cs" />
     <Compile Include="Messages\TraceLogMessage.cs" />
-    <Compile Include="Model\DataItem.cs" />
-    <Compile Include="Model\DataService.cs" />
-    <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\TraceLogModel.cs" />
     <Compile Include="ViewModel\FileIOViewModel.cs" />
     <Compile Include="ViewModel\FilterPickerViewModel.cs" />
@@ -170,6 +166,9 @@
       <Project>{b2727506-3b5c-4153-a0c9-97d9e75cef75}</Project>
       <Name>VMF.ImageProc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
