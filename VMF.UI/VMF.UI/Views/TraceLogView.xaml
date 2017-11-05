@@ -8,7 +8,7 @@
              DataContext="{Binding Source={StaticResource Locator}, Path=TreaceLog}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" MinHeight="200"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

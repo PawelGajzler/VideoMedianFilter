@@ -9,7 +9,7 @@
         Height="300"
         Width="300"
         Title="Video Median Filter"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -23,7 +23,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

@@ -12,6 +12,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Ninject;
 using VMF.UI.Model;
 
 namespace VMF.UI.ViewModel
@@ -51,7 +52,7 @@ namespace VMF.UI.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return WMPUINinjectModule.GetKernel().Get<MainViewModel>();
             }
         }
 
@@ -59,7 +60,7 @@ namespace VMF.UI.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<FileIOViewModel>();
+                return WMPUINinjectModule.GetKernel().Get<FileIOViewModel>();
             }
         }
 
@@ -67,7 +68,7 @@ namespace VMF.UI.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<FilterPickerViewModel>();
+                return WMPUINinjectModule.GetKernel().Get<FilterPickerViewModel>();
             }
         }
 
@@ -75,7 +76,7 @@ namespace VMF.UI.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<ProgressViewModel>();
+                return WMPUINinjectModule.GetKernel().Get<ProgressViewModel>();
             }
         }
 
@@ -83,7 +84,7 @@ namespace VMF.UI.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<TraceLogViewModel>();
+                return WMPUINinjectModule.GetKernel().Get<TraceLogViewModel>();
             }
         }
         /// <summary>
