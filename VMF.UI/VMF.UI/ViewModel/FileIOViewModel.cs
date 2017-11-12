@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Forms;
 
 namespace VMF.UI.ViewModel
 {
@@ -56,8 +57,10 @@ namespace VMF.UI.ViewModel
             {
                 return pickSourceFileCommand ?? (pickSourceFileCommand = new RelayCommand(() =>
                 {
-                    OpenFileDialog sourceFileDialog = new OpenFileDialog();
-                    sourceFileDialog.Filter = ".avi;.3gp;.mov;.mp4;";
+                    Microsoft.Win32.OpenFileDialog sourceFileDialog = new Microsoft.Win32.OpenFileDialog
+                    {
+                        Filter = "Video Files|*.avi;*.3gp;*.mov;*.mp4;"
+                    };
                     Nullable<bool> result = sourceFileDialog.ShowDialog();
                     if(result == true)
                     {
@@ -75,7 +78,12 @@ namespace VMF.UI.ViewModel
             {
                 return pickDestinationFolderCommand ?? (pickDestinationFolderCommand = new RelayCommand(() =>
                 {
-                     
+                    FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                    DialogResult result = folderBrowserDialog.ShowDialog();
+                    if(result==DialogResult.OK && !String.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                    {
+                        DestinationLocation = folderBrowserDialog.SelectedPath;
+                    }
                 }));
             }
         }

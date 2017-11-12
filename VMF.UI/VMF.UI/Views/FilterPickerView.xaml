@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <ComboBox Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top"/>
+        <ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top"/>
         <Button Grid.Row="0" Grid.Column="1" Margin="10" Content="Convert" Command="{Binding Path=ConvertVideoCommand}"/>
     </Grid>
 </UserControl>

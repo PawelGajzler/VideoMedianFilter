@@ -56,6 +56,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -76,15 +77,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Messages\FilterParameterMessage.cs" />
     <Compile Include="Messages\ProgressMessage.cs" />
     <Compile Include="Messages\TraceLogMessage.cs" />
     <Compile Include="Model\TraceLogModel.cs" />
+    <Compile Include="ViewModel\BinaryzationFilterViewModel.cs" />
     <Compile Include="ViewModel\FileIOViewModel.cs" />
     <Compile Include="ViewModel\FilterPickerViewModel.cs" />
+    <Compile Include="ViewModel\FilterViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProgressViewModel.cs" />
     <Compile Include="ViewModel\TraceLogViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\BinaryzationFilterView.xaml.cs">
+      <DependentUpon>BinaryzationFilterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FileIOView.xaml.cs">
       <DependentUpon>FileIOView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +120,10 @@
     <Page Include="Skins\MainSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BinaryzationFilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FileIOView.xaml">
       <SubType>Designer</SubType>

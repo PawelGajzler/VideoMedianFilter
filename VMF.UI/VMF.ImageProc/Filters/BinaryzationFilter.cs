@@ -26,9 +26,9 @@ namespace VMF.ImageProc.Filters
                     Histogram histogram = new Histogram(inputImage);
                     threshhold = histogram.CalculateThreshhold();
                 }
-                for(int i=0; i<inputImage.Width; ++i)
+                Parallel.For(0, inputImage.Width, i =>
                 {
-                    for(int j=0;i<inputImage.Height; ++j)
+                    for (int j = 0; j < inputImage.Height; ++j)
                     {
                         if (inputImage.GetPixel(i, j).R > threshhold)
                         {
@@ -39,7 +39,7 @@ namespace VMF.ImageProc.Filters
                             result.SetPixel(i, j, Color.Black);
                         }
                     }
-                }
+                });
                 return result;
             });
         }

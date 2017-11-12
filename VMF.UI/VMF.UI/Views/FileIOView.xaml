@@ -20,7 +20,7 @@
         <TextBox HorizontalAlignment="Stretch" Height="23" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Path=DestinationLocation}"/>
         <Label Content="Source File:" Margin="0,0,5,0" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
         <Label Content="Destination File:" Margin="0,0,5,0" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <Button Content="..." Height="23" Margin="2,10,10,10" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Width="20" Command="{Binding Path=PickSourceFileLocation}"/>
-        <Button Content="..." Height="23" Margin="2,10,10,10" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Width="20" Command="{Binding Path=PickDestinationFileLocation}"/>
+        <Button Content="..." Height="23" Margin="2,10,10,10" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Width="20" Command="{Binding Path=PickSourceFileCommand}"/>
+        <Button Content="..." Height="23" Margin="2,10,10,10" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Width="20" Command="{Binding Path=PickDestinationFolderCommand}"/>
     </Grid>
 </UserControl>
