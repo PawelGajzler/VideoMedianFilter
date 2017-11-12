@@ -76,6 +76,14 @@ namespace VMF.UI.ViewModel
                 return WMPUINinjectModule.GetKernel().Get<TraceLogViewModel>();
             }
         }
+
+        public BinaryzationFilterViewModel Binaryzation
+        {
+            get
+            {
+                return WMPUINinjectModule.GetKernel().Get<BinaryzationFilterViewModel>();
+            }
+        }
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>

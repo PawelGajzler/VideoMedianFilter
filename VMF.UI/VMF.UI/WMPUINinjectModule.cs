@@ -24,6 +24,7 @@ namespace VMF.UI
             Bind<FilterPickerViewModel>().ToSelf();
             Bind<ProgressViewModel>().ToSelf();
             Bind<TraceLogViewModel>().ToSelf();
+            Bind<BinaryzationFilterViewModel>().ToSelf();
         }
     }
 }
