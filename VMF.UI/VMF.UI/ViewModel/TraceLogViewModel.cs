@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +27,9 @@ namespace VMF.UI.ViewModel
             Messages.Add(new TraceLogModel(obj.Message));
         }
 
-        private List<TraceLogModel> messages = new List<TraceLogModel>();
+        private ObservableCollection<TraceLogModel> messages = new ObservableCollection<TraceLogModel>();
 
-        public List<TraceLogModel> Messages
+        public ObservableCollection<TraceLogModel> Messages
         {
             get
             {
