@@ -14,7 +14,7 @@ namespace VMF.UI.Converters
         {
             if(value is DateTime dateTime)
             {
-                return $"{dateTime.Hour}:{dateTime.Minute}:{dateTime.Second}";
+                return $"{dateTime.Hour}:{dateTime.Minute:D2}:{dateTime.Second:D2}";
             }
             return null;
         }

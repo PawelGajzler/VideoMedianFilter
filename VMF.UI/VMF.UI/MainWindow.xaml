@@ -23,6 +23,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -31,7 +32,8 @@
         </Grid.ColumnDefinitions>
         <view:FileIOView Grid.Row="0"/>
         <view:FilterPickerView Grid.Row="1"/>
-        <view:TraceLogView Grid.Row="2"/>
-        <view:ProgressView Grid.Row="3"/>
+        <!--contentpresenter-->
+        <view:TraceLogView Grid.Row="3"/>
+        <view:ProgressView Grid.Row="4"/>
     </Grid>
 </Window>

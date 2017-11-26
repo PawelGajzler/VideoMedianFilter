@@ -59,7 +59,7 @@ namespace VMF.UI.ViewModel
                 {
                     Microsoft.Win32.OpenFileDialog sourceFileDialog = new Microsoft.Win32.OpenFileDialog
                     {
-                        Filter = "Video Files|*.avi;*.3gp;*.mov;*.mp4;"
+                        Filter = "Video Files|*.avi;*.3gp;*.mov;*.mp4;*.flv;"
                     };
                     Nullable<bool> result = sourceFileDialog.ShowDialog();
                     if(result == true)
