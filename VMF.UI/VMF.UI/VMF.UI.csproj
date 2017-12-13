@@ -84,8 +84,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToButtonTextConverter.cs" />
     <Compile Include="Converters\DateTimeToTimeStringConverter.cs" />
     <Compile Include="Converters\IsNotConverter.cs" />
+    <Compile Include="Helpers\OptionsTemplateSelector.cs" />
+    <Compile Include="Interfaces\IVideoFilterEngine.cs" />
+    <Compile Include="Messages\FilePathMessage.cs" />
     <Compile Include="Messages\FilterParameterMessage.cs" />
     <Compile Include="Messages\ProgressMessage.cs" />
     <Compile Include="Messages\TraceLogMessage.cs" />
@@ -101,6 +105,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\BinaryzationFilterView.xaml.cs">
       <DependentUpon>BinaryzationFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlankView.xaml.cs">
+      <DependentUpon>BlankView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FileIOView.xaml.cs">
       <DependentUpon>FileIOView.xaml</DependentUpon>
@@ -132,6 +139,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BinaryzationFilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,6 +194,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonTypes\CommonTypes.csproj">
+      <Project>{a3336f40-7dcd-4472-ba5a-e7c556bea3ba}</Project>
+      <Name>CommonTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VMF.ImageProc\VMF.ImageProc.csproj">
       <Project>{b2727506-3b5c-4153-a0c9-97d9e75cef75}</Project>
       <Name>VMF.ImageProc</Name>

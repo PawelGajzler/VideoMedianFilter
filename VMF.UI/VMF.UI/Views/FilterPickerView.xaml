@@ -2,10 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:VMF.UI.Views"
+             xmlns:conv="clr-namespace:VMF.UI.Converters"
+             xmlns:enums="clr-namespace:CommonTypes;assembly=CommonTypes"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Filter}">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:FilterType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <conv:BooleanToButtonTextConverter x:Key="boolToTextConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,7 +26,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top"/>
-        <Button Grid.Row="0" Grid.Column="1" Margin="10" Content="Convert" Command="{Binding Path=ConvertVideoCommand}"/>
+        <ComboBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding CurrentFilterType}"/>
+        <Button Grid.Row="0" Grid.Column="1" Margin="10" Content="{Binding FilterRunning, Converter={StaticResource ResourceKey=boolToTextConverter}}" Command="{Binding Path=ConvertVideoCommand}"/>
     </Grid>
 </UserControl>

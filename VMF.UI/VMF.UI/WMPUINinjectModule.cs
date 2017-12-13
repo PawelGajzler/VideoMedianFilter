@@ -7,6 +7,8 @@ using Ninject;
 using Ninject.Modules;
 using VMF.UI.ViewModel;
 using VMF.ImageProc;
+using VMF.UI.Interfaces;
+using VMF.UI.Model;
 
 namespace VMF.UI
 {
@@ -25,6 +27,7 @@ namespace VMF.UI
             Bind<ProgressViewModel>().ToSelf();
             Bind<TraceLogViewModel>().ToSelf();
             Bind<BinaryzationFilterViewModel>().ToSelf();
+            Bind<IVideoFilterEngine>().To<VideoFilterEngine>();
         }
     }
 }

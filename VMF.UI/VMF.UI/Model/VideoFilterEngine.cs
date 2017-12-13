@@ -12,10 +12,11 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using System.Drawing;
 using VMF.UI.Messages;
+using VMF.UI.Interfaces;
 
 namespace VMF.UI.Model
 {
-    public class VideoFilterEngine
+    public class VideoFilterEngine : IVideoFilterEngine
     {
         public async void FilterVideo(IFilter filter, string inputFile, string outputDirectory, CancellationToken token)
         {

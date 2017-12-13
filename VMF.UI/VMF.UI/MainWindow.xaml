@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:VMF.UI.Views"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:helpers="clr-namespace:VMF.UI.Helpers"
         mc:Ignorable="d ignore"
         Height="300"
         Width="300"
@@ -16,6 +17,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="BlankOptionsTemplate">
+                <view:BlankView/>
+            </DataTemplate>
+            <DataTemplate x:Key="BinaryzationOptionsTemplate">
+                <view:BinaryzationFilterView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -33,6 +40,12 @@
         <view:FileIOView Grid.Row="0"/>
         <view:FilterPickerView Grid.Row="1"/>
         <!--contentpresenter-->
+        <ContentPresenter>
+            <ContentPresenter.ContentTemplateSelector>
+                <helpers:OptionsTemplateSelector BlankTemplate="{StaticResource BlankOptionsTemplate}"
+                                                 BinaryzationTemplate="{StaticResource BinaryzationOptionsTemplate}"/>
+            </ContentPresenter.ContentTemplateSelector>
+        </ContentPresenter>
         <view:TraceLogView Grid.Row="3"/>
         <view:ProgressView Grid.Row="4"/>
     </Grid>

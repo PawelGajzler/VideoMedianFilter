@@ -2,18 +2,19 @@
 using VMF.ImageProc.Interfaces;
 using VMF.ImageProc.Filters;
 using VMF.ImageProc.Exceptions;
+using CommonTypes;
 
 namespace VMF.ImageProc
 {
     public class FiltersFactory : IFiltersFactory
     {
-        public IFilter CreateFilter(string FilterName)
+        public IFilter CreateFilter(FilterType FilterName)
         {
             switch (FilterName)
             {
-                case "GrayScale":
+                case FilterType.GrayScale:
                     return new GrayScaleFilter();
-                case "Binaryzation":
+                case FilterType.Binaryzation:
                     return new BinaryzationFilter();
                 default:
                     throw new FilterNotFoundException();

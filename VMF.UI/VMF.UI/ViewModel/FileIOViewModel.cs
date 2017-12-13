@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Forms;
+using VMF.UI.Messages;
 
 namespace VMF.UI.ViewModel
 {
@@ -65,6 +66,7 @@ namespace VMF.UI.ViewModel
                     if(result == true)
                     {
                         SourceFileLocation = sourceFileDialog.FileName;
+                        MessengerInstance.Send(new FilePathMessage(SourceFileLocation, true));
                     }
                 }));
             }
@@ -83,6 +85,7 @@ namespace VMF.UI.ViewModel
                     if(result==DialogResult.OK && !String.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
                     {
                         DestinationLocation = folderBrowserDialog.SelectedPath;
+                        MessengerInstance.Send(new FilePathMessage(DestinationLocation, false));
                     }
                 }));
             }

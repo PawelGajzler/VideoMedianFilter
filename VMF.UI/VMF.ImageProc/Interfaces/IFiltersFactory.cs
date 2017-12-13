@@ -1,7 +1,9 @@
-﻿namespace VMF.ImageProc.Interfaces
+﻿using CommonTypes;
+
+namespace VMF.ImageProc.Interfaces
 {
     public interface IFiltersFactory
     {
-        IFilter CreateFilter(string FilterName);
+        IFilter CreateFilter(FilterType FilterName);
     }
 }
