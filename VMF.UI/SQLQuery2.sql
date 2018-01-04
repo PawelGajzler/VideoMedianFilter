@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[OrderProduct]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[OrderId] INT NOT NULL FOREIGN KEY REFERENCES dbo.Orders (Id),
+	[ProductId] INT NOT NULL FOREIGN KEY REFERENCES dbo.Products (Id)
+)

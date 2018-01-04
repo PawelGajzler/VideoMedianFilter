@@ -7,8 +7,8 @@
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:helpers="clr-namespace:VMF.UI.Helpers"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="300"
+        Height="480"
+        Width="640"
         Title="Video Median Filter"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     
@@ -40,7 +40,7 @@
         <view:FileIOView Grid.Row="0"/>
         <view:FilterPickerView Grid.Row="1"/>
         <!--contentpresenter-->
-        <ContentPresenter>
+        <ContentPresenter Grid.Row="2">
             <ContentPresenter.ContentTemplateSelector>
                 <helpers:OptionsTemplateSelector BlankTemplate="{StaticResource BlankOptionsTemplate}"
                                                  BinaryzationTemplate="{StaticResource BinaryzationOptionsTemplate}"/>

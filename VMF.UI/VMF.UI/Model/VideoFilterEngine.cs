@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AForge.Video.FFMPEG;
+using Accord.Video.FFMPEG;
 using VMF.ImageProc.Interfaces;
 using System.Threading;
 using System.IO;
-using AForge.Video;
+using Accord.Video;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using System.Drawing;
@@ -36,7 +36,7 @@ namespace VMF.UI.Model
                     Bitmap currentBitmap = videoFileReader.ReadVideoFrame();
                     Bitmap newBitmap = await filter.RunFilter(currentBitmap);
                     videoFileWriter.WriteVideoFrame(newBitmap);
-                    Messenger.Default.Send(new ProgressMessage((int)(i / videoFileReader.FrameCount)));
+                    Messenger.Default.Send(new ProgressMessage((int)(i / videoFileReader.FrameCount)*100));
                 }
             }
             catch (IOException)

@@ -14,7 +14,7 @@ namespace VMF.ImageProc.Filters
     {
         private int threshhold = 128;
 
-        private bool adaptive = false;
+        private bool adaptive = true;
 
         public Task<Bitmap> RunFilter(Bitmap inputImage)
         {
@@ -26,7 +26,7 @@ namespace VMF.ImageProc.Filters
                     Histogram histogram = new Histogram(inputImage);
                     threshhold = histogram.CalculateThreshhold();
                 }
-                Parallel.For(0, inputImage.Width, i =>
+                for(int i = 0; i<inputImage.Width; ++i)
                 {
                     for (int j = 0; j < inputImage.Height; ++j)
                     {
@@ -39,7 +39,7 @@ namespace VMF.ImageProc.Filters
                             result.SetPixel(i, j, Color.Black);
                         }
                     }
-                });
+                }
                 return result;
             });
         }
