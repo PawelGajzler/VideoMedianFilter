@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,16 @@ namespace VMF.UI.Helpers
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
+            FilterType filterType = (FilterType)item;
+            switch (filterType)
+            {
+                case FilterType.GrayScale:
+                case FilterType.None:
+                    return BlankTemplate;
+                case FilterType.Binaryzation:
+                    return BinaryzationTemplate;
+            }
+
             return base.SelectTemplate(item, container);
         }
     }

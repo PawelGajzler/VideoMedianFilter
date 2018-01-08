@@ -31,22 +31,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <view:FileIOView Grid.Row="0"/>
-        <view:FilterPickerView Grid.Row="1"/>
+        <DockPanel>
+            <Menu Grid.Row="0">
+                <MenuItem Header="_Options">
+                    <MenuItem Header="Config" Click="ConfigItem_Click" />
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="ExitItem_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <view:FileIOView Grid.Row="1"/>
+        <view:FilterPickerView Grid.Row="2"/>
         <!--contentpresenter-->
-        <ContentPresenter Grid.Row="2">
+        <ContentPresenter Grid.Row="3" Content="{Binding CurrentFilter}">
             <ContentPresenter.ContentTemplateSelector>
                 <helpers:OptionsTemplateSelector BlankTemplate="{StaticResource BlankOptionsTemplate}"
                                                  BinaryzationTemplate="{StaticResource BinaryzationOptionsTemplate}"/>
             </ContentPresenter.ContentTemplateSelector>
         </ContentPresenter>
-        <view:TraceLogView Grid.Row="3"/>
-        <view:ProgressView Grid.Row="4"/>
+        <view:TraceLogView Grid.Row="4"/>
+        <view:ProgressView Grid.Row="5"/>
     </Grid>
 </Window>

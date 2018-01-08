@@ -17,7 +17,7 @@ namespace VMF.ImageProc
                 case FilterType.Binaryzation:
                     return new BinaryzationFilter();
                 default:
-                    throw new FilterNotFoundException();
+                    return new EmptyFilter();
             }
         }
     }

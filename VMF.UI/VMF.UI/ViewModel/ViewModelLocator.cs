@@ -84,6 +84,14 @@ namespace VMF.UI.ViewModel
                 return WMPUINinjectModule.GetKernel().Get<BinaryzationFilterViewModel>();
             }
         }
+
+        public ConfigViewModel Config
+        {
+            get
+            {
+                return WMPUINinjectModule.GetKernel().Get<ConfigViewModel>();
+            }
+        }
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>

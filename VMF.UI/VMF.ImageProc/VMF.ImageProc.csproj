@@ -45,13 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\BadMaskLengthException.cs" />
     <Compile Include="Exceptions\FilterNotFoundException.cs" />
     <Compile Include="Exceptions\UnknownParameterException.cs" />
     <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
     <Compile Include="FiltersFactory.cs" />
     <Compile Include="Filters\BinaryzationFilter.cs" />
+    <Compile Include="Filters\BorderDetectionFilter.cs" />
+    <Compile Include="Filters\EmptyFilter.cs" />
     <Compile Include="Filters\GrayScaleFilter.cs" />
     <Compile Include="Helpers\Histogram.cs" />
+    <Compile Include="Helpers\MaskOperations.cs" />
     <Compile Include="ImageProcNinjectModule.cs" />
     <Compile Include="Interfaces\IFilter.cs" />
     <Compile Include="Interfaces\IFiltersFactory.cs" />

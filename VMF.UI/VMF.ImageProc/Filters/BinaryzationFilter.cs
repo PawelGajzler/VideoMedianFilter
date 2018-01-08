@@ -18,6 +18,11 @@ namespace VMF.ImageProc.Filters
 
         public Task<Bitmap> RunFilter(Bitmap inputImage)
         {
+            GrayScaleFilter grayfilter = new GrayScaleFilter();
+            Task.Run(() =>
+            {
+                inputImage = grayfilter.RunFilter(inputImage).Result;
+            }).Wait();
             return Task.Run(() =>
             {
                 Bitmap result = new Bitmap(inputImage.Width, inputImage.Height);
@@ -26,7 +31,7 @@ namespace VMF.ImageProc.Filters
                     Histogram histogram = new Histogram(inputImage);
                     threshhold = histogram.CalculateThreshhold();
                 }
-                for(int i = 0; i<inputImage.Width; ++i)
+                for(int i = 0; i < inputImage.Width; ++i)
                 {
                     for (int j = 0; j < inputImage.Height; ++j)
                     {

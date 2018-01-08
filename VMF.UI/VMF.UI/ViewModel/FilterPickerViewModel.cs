@@ -11,6 +11,7 @@ using VMF.UI.Messages;
 using CommonTypes;
 using System.Threading;
 using VMF.UI.Interfaces;
+using VMF.UI.Model;
 
 namespace VMF.UI.ViewModel
 {
@@ -26,9 +27,7 @@ namespace VMF.UI.ViewModel
 
         private FilterType currentFilterType = FilterType.None;
 
-        private string inputFilePath = string.Empty;
-
-        private string outputDirectoryPath = string.Empty;
+        private VideoOptions videoOptions;
 
         public FilterType CurrentFilterType
         {
@@ -66,9 +65,12 @@ namespace VMF.UI.ViewModel
 
         public FilterPickerViewModel(IFiltersFactory filtersFactory, IVideoFilterEngine videoFilterEngine)
         {
+            this.videoOptions = new VideoOptions();
             this.filtersFactory = filtersFactory;
             this.videoFilterEngine = videoFilterEngine;
             this.cancellationTokenSource = new CancellationTokenSource();
+            this.currentFilter = this.filtersFactory.CreateFilter(FilterType.None);
+            GetDataFromConfig();
             RegisterMessageHandlers();
         }
 
@@ -76,17 +78,29 @@ namespace VMF.UI.ViewModel
         {
             MessengerInstance.Register<FilterParameterMessage>(this, FilterParameterHandler);
             MessengerInstance.Register<FilePathMessage>(this, FileParametersHandler);
+            MessengerInstance.Register<NewConfigMessage>(this, NewConfigHandler);
+        }
+
+        private void NewConfigHandler(NewConfigMessage obj)
+        {
+            GetDataFromConfig();
+        }
+
+        private void GetDataFromConfig()
+        {
+            videoOptions.FileName = Properties.Settings.Default[Constants.FileNamePropertyKey].ToString();
+            videoOptions.FileFormat = Properties.Settings.Default[Constants.FileTypePropertyKey].ToString();
         }
 
         private void FileParametersHandler(FilePathMessage obj)
         {
             if (obj.IsInput)
             {
-                inputFilePath = obj.Path;
+                videoOptions.InputPath = obj.Path;
             }
             else
             {
-                outputDirectoryPath = obj.Path;
+                videoOptions.OutputPath= obj.Path;
             }
         }
 
@@ -114,7 +128,7 @@ namespace VMF.UI.ViewModel
                     {
                         MessengerInstance.Send(new TraceLogMessage("Operation Started"));
                         FilterRunning = true;
-                        videoFilterEngine.FilterVideo(currentFilter, inputFilePath, outputDirectoryPath, cancellationTokenSource.Token);
+                        videoFilterEngine.FilterVideo(currentFilter, videoOptions, cancellationTokenSource.Token);
                     }
                 }));
             }

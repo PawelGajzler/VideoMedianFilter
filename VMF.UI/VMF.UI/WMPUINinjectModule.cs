@@ -27,6 +27,7 @@ namespace VMF.UI
             Bind<ProgressViewModel>().ToSelf();
             Bind<TraceLogViewModel>().ToSelf();
             Bind<BinaryzationFilterViewModel>().ToSelf();
+            Bind<ConfigViewModel>().ToSelf();
             Bind<IVideoFilterEngine>().To<VideoFilterEngine>();
         }
     }

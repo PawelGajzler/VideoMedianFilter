@@ -15,5 +15,9 @@ namespace CommonTypes
         //filter names
         public const string GrayScaleFilterName = "GrayScale";
         public const string BinaryzationFilterName = "Binaryzation";
+
+        public const string FileNamePropertyKey = "FileName";
+        public const string FileTypePropertyKey = "FileType";
+        public const string CodecPropertyKey = "Codec";
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using VMF.UI.ViewModel;
+using VMF.UI.Views;
 
 namespace VMF.UI
 {
@@ -15,6 +16,17 @@ namespace VMF.UI
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
+        }
+
+        private void ExitItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ConfigItem_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigWindow configWindow = new ConfigWindow();
+            configWindow.Show();
         }
     }
 }
